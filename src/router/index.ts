@@ -5,6 +5,12 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
+      path: '/',
+      name: 'landing',
+      component: () => import('@/pages/LandingPage.vue'),
+      meta: { requiresAuth: false }
+    },
+    {
       path: '/login',
       name: 'login',
       component: () => import('@/pages/LoginPage.vue'),
@@ -17,13 +23,13 @@ const router = createRouter({
       meta: { requiresAuth: false }
     },
     {
-      path: '/',
+      path: '/app',
       component: () => import('@/layouts/AppLayout.vue'),
       meta: { requiresAuth: true },
       children: [
         {
           path: '',
-          redirect: '/dashboard'
+          redirect: '/app/dashboard'
         },
         {
           path: 'dashboard',
@@ -92,8 +98,13 @@ router.beforeEach((to, from, next) => {
 
   if (to.meta.requiresAuth && !authStore.isAuthenticated) {
     next({ name: 'login', query: { redirect: to.fullPath } })
-  } else if (!to.meta.requiresAuth && authStore.isAuthenticated && to.name !== 'not-found') {
-    next({ name: 'dashboard' })
+  } else if (!to.meta.requiresAuth && authStore.isAuthenticated && to.name !== 'not-found' && to.name !== 'showcase') {
+    // Redirect authenticated users to dashboard, except for landing, showcase, and not-found
+    if (to.name === 'landing' || to.name === 'login' || to.name === 'register') {
+      next({ path: '/app/dashboard' })
+    } else {
+      next()
+    }
   } else {
     next()
   }
