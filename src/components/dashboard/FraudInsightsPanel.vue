@@ -6,7 +6,7 @@ import {
   ExclamationTriangleIcon,
   ShieldExclamationIcon,
   CurrencyDollarIcon,
-  TrendingUpIcon
+  ArrowTrendingUpIcon
 } from '@heroicons/vue/24/outline'
 
 interface InsightData {
@@ -53,7 +53,7 @@ const insights = computed(() => [
   {
     label: 'Avg Processing Time',
     value: `${props.data.avgProcessingTime.toFixed(1)}h`,
-    icon: TrendingUpIcon,
+    icon: ArrowTrendingUpIcon,
     color: 'text-primary-600',
     bgColor: 'bg-primary-50'
   }
