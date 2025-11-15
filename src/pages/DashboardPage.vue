@@ -31,9 +31,9 @@ const auditResults = ref<AuditResult[]>([])
 const quickStats = computed(() => ({
   totalClaims: claims.value.length,
   flaggedClaims: auditResults.value.length,
-  totalAmount: claims.value.reduce((sum, c) => sum + c.charge_amount, 0),
+  totalAmount: claims.value.reduce((sum, c) => sum + Number(c.charge_amount), 0),
   avgClaimAmount: claims.value.length > 0
-    ? claims.value.reduce((sum, c) => sum + c.charge_amount, 0) / claims.value.length
+    ? claims.value.reduce((sum, c) => sum + Number(c.charge_amount), 0) / claims.value.length
     : 0
 }))
 
@@ -82,7 +82,7 @@ const topProvidersData = computed(() => {
 
     const provider = providerMap.get(claim.provider_id)
     provider.total_claims++
-    provider.total_amount += claim.charge_amount
+    provider.total_amount += Number(claim.charge_amount)
 
     const audit = auditResults.value.find(a => a.claim_id === claim.claim_id)
     if (audit) {
@@ -118,7 +118,7 @@ const topMembersData = computed(() => {
 
     const member = memberMap.get(claim.member_id)
     member.total_claims++
-    member.total_amount += claim.charge_amount
+    member.total_amount += Number(claim.charge_amount)
 
     const audit = auditResults.value.find(a => a.claim_id === claim.claim_id)
     if (audit) {
@@ -142,7 +142,7 @@ const fraudInsights = computed(() => {
   const highRiskAudits = auditResults.value.filter(a => getRiskLevel(a.suspicion_score) === 'high')
   const fraudulentAmount = highRiskAudits.reduce((sum, a) => {
     const claim = claims.value.find(c => c.claim_id === a.claim_id)
-    return sum + (claim?.charge_amount || 0)
+    return sum + Number(claim?.charge_amount || 0)
   }, 0)
 
   const detectionRate = claims.value.length > 0
@@ -174,7 +174,7 @@ const fetchDashboardData = async () => {
   try {
     const [claimsResponse, auditsResponse] = await Promise.all([
       claimsService.getAll(1, 100),
-      auditService.getAll(1, 100)
+      auditService.getFlagged(1, 100)
     ])
 
     claims.value = claimsResponse.items
