@@ -60,6 +60,11 @@ const router = createRouter({
           name: 'audit-results',
           component: () => import('@/pages/AuditResultsPage.vue')
         },
+        {
+          path: 'settings',
+          name: 'settings',
+          component: () => import('@/pages/SettingsPage.vue')
+        },
         // Legacy route - redirect to new audit routes
         {
           path: 'flagged-claims',
