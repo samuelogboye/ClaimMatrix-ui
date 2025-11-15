@@ -44,7 +44,7 @@ const recentAudits = computed(() => {
 const fetchAuditStats = async () => {
   loading.value = true
   try {
-    const response = await auditService.getAll(1, 100)
+    const response = await auditService.getFlagged(0, 1, 100)
     auditResults.value = response.items
 
     // Calculate statistics
