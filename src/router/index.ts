@@ -46,14 +46,24 @@ const router = createRouter({
           component: () => import('@/pages/ClaimDetailPage.vue')
         },
         {
-          path: 'flagged-claims',
-          name: 'flagged-claims',
+          path: 'audit/dashboard',
+          name: 'audit-dashboard',
+          component: () => import('@/pages/AuditDashboardPage.vue')
+        },
+        {
+          path: 'audit/flagged',
+          name: 'audit-flagged',
           component: () => import('@/pages/FlaggedClaimsPage.vue')
         },
         {
           path: 'audit-results',
           name: 'audit-results',
           component: () => import('@/pages/AuditResultsPage.vue')
+        },
+        // Legacy route - redirect to new audit routes
+        {
+          path: 'flagged-claims',
+          redirect: '/audit/flagged'
         }
       ]
     },
