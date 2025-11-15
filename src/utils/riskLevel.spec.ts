@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { getRiskLevel, getRiskColor, getRiskLabel } from './riskLevel'
+import { getRiskLevel, getRiskColorClasses, getRiskLevelLabel } from './riskLevel'
 
 describe('riskLevel', () => {
   describe('getRiskLevel', () => {
@@ -28,38 +28,38 @@ describe('riskLevel', () => {
     })
   })
 
-  describe('getRiskColor', () => {
+  describe('getRiskColorClasses', () => {
     it('should return red for high risk', () => {
-      const color = getRiskColor('high')
+      const color = getRiskColorClasses('high')
       expect(color.text).toContain('red')
       expect(color.bg).toContain('red')
     })
 
     it('should return amber for medium risk', () => {
-      const color = getRiskColor('medium')
+      const color = getRiskColorClasses('medium')
       expect(color.text).toContain('amber')
       expect(color.bg).toContain('amber')
     })
 
     it('should return orange for low risk', () => {
-      const color = getRiskColor('low')
+      const color = getRiskColorClasses('low')
       expect(color.text).toContain('orange')
       expect(color.bg).toContain('orange')
     })
 
     it('should return gray for no risk', () => {
-      const color = getRiskColor('none')
+      const color = getRiskColorClasses('none')
       expect(color.text).toContain('gray')
       expect(color.bg).toContain('gray')
     })
   })
 
-  describe('getRiskLabel', () => {
+  describe('getRiskLevelLabel', () => {
     it('should return correct labels for risk levels', () => {
-      expect(getRiskLabel('high')).toBe('High Risk')
-      expect(getRiskLabel('medium')).toBe('Medium Risk')
-      expect(getRiskLabel('low')).toBe('Low Risk')
-      expect(getRiskLabel('none')).toBe('No Risk')
+      expect(getRiskLevelLabel('high')).toBe('High Risk')
+      expect(getRiskLevelLabel('medium')).toBe('Medium Risk')
+      expect(getRiskLevelLabel('low')).toBe('Low Risk')
+      expect(getRiskLevelLabel('none')).toBe('No Risk')
     })
   })
 })
