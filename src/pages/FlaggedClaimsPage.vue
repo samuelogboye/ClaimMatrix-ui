@@ -116,7 +116,7 @@ const riskCounts = computed(() => {
 const fetchFlaggedClaims = async () => {
   loading.value = true
   try {
-    const response = await auditService.getAll(page.value, pageSize.value)
+    const response = await auditService.getFlagged(page.value, pageSize.value)
     auditResults.value = response.items
 
     // Fetch associated claims
