@@ -52,12 +52,24 @@
                   <div>
                     <h4 class="text-sm font-medium text-gray-900 mb-3">General</h4>
                     <div class="space-y-2">
-                      <ShortcutItem
-                        shortcut="⌘K / Ctrl+K"
-                        description="Open command palette"
-                      />
-                      <ShortcutItem shortcut="?" description="Show keyboard shortcuts" />
-                      <ShortcutItem shortcut="Esc" description="Close modal or cancel action" />
+                      <div class="flex items-center justify-between py-2">
+                        <span class="text-sm text-gray-600">Open command palette</span>
+                        <kbd class="inline-flex items-center rounded bg-gray-100 px-2 py-1 font-mono text-xs font-semibold text-gray-700">
+                          ⌘K / Ctrl+K
+                        </kbd>
+                      </div>
+                      <div class="flex items-center justify-between py-2">
+                        <span class="text-sm text-gray-600">Show keyboard shortcuts</span>
+                        <kbd class="inline-flex items-center rounded bg-gray-100 px-2 py-1 font-mono text-xs font-semibold text-gray-700">
+                          ?
+                        </kbd>
+                      </div>
+                      <div class="flex items-center justify-between py-2">
+                        <span class="text-sm text-gray-600">Close modal or cancel action</span>
+                        <kbd class="inline-flex items-center rounded bg-gray-100 px-2 py-1 font-mono text-xs font-semibold text-gray-700">
+                          Esc
+                        </kbd>
+                      </div>
                     </div>
                   </div>
 
@@ -65,11 +77,36 @@
                   <div>
                     <h4 class="text-sm font-medium text-gray-900 mb-3">Navigation</h4>
                     <div class="space-y-2">
-                      <ShortcutItem shortcut="D" description="Go to Dashboard" />
-                      <ShortcutItem shortcut="C" description="Go to Claims" />
-                      <ShortcutItem shortcut="F" description="Go to Flagged Claims" />
-                      <ShortcutItem shortcut="U" description="Go to Upload Claims" />
-                      <ShortcutItem shortcut="A" description="Go to Audit Results" />
+                      <div class="flex items-center justify-between py-2">
+                        <span class="text-sm text-gray-600">Go to Dashboard</span>
+                        <kbd class="inline-flex items-center rounded bg-gray-100 px-2 py-1 font-mono text-xs font-semibold text-gray-700">
+                          D
+                        </kbd>
+                      </div>
+                      <div class="flex items-center justify-between py-2">
+                        <span class="text-sm text-gray-600">Go to Claims</span>
+                        <kbd class="inline-flex items-center rounded bg-gray-100 px-2 py-1 font-mono text-xs font-semibold text-gray-700">
+                          C
+                        </kbd>
+                      </div>
+                      <div class="flex items-center justify-between py-2">
+                        <span class="text-sm text-gray-600">Go to Flagged Claims</span>
+                        <kbd class="inline-flex items-center rounded bg-gray-100 px-2 py-1 font-mono text-xs font-semibold text-gray-700">
+                          F
+                        </kbd>
+                      </div>
+                      <div class="flex items-center justify-between py-2">
+                        <span class="text-sm text-gray-600">Go to Upload Claims</span>
+                        <kbd class="inline-flex items-center rounded bg-gray-100 px-2 py-1 font-mono text-xs font-semibold text-gray-700">
+                          U
+                        </kbd>
+                      </div>
+                      <div class="flex items-center justify-between py-2">
+                        <span class="text-sm text-gray-600">Go to Audit Results</span>
+                        <kbd class="inline-flex items-center rounded bg-gray-100 px-2 py-1 font-mono text-xs font-semibold text-gray-700">
+                          A
+                        </kbd>
+                      </div>
                     </div>
                   </div>
 
@@ -77,9 +114,24 @@
                   <div>
                     <h4 class="text-sm font-medium text-gray-900 mb-3">Tables</h4>
                     <div class="space-y-2">
-                      <ShortcutItem shortcut="↑ / ↓" description="Navigate table rows" />
-                      <ShortcutItem shortcut="Enter" description="Open selected item" />
-                      <ShortcutItem shortcut="Space" description="Select/deselect item" />
+                      <div class="flex items-center justify-between py-2">
+                        <span class="text-sm text-gray-600">Navigate table rows</span>
+                        <kbd class="inline-flex items-center rounded bg-gray-100 px-2 py-1 font-mono text-xs font-semibold text-gray-700">
+                          ↑ / ↓
+                        </kbd>
+                      </div>
+                      <div class="flex items-center justify-between py-2">
+                        <span class="text-sm text-gray-600">Open selected item</span>
+                        <kbd class="inline-flex items-center rounded bg-gray-100 px-2 py-1 font-mono text-xs font-semibold text-gray-700">
+                          Enter
+                        </kbd>
+                      </div>
+                      <div class="flex items-center justify-between py-2">
+                        <span class="text-sm text-gray-600">Select/deselect item</span>
+                        <kbd class="inline-flex items-center rounded bg-gray-100 px-2 py-1 font-mono text-xs font-semibold text-gray-700">
+                          Space
+                        </kbd>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -135,47 +187,4 @@ interface Emits {
 
 defineProps<Props>()
 const emit = defineEmits<Emits>()
-</script>
-
-<script lang="ts">
-export default {
-  name: 'KeyboardShortcutsModal'
-}
-</script>
-
-<style scoped>
-/* Custom component for shortcut items */
-</style>
-
-<template>
-  <template v-if="false">
-    <ShortcutItem />
-  </template>
-</template>
-
-<script setup lang="ts">
-// Shortcut Item Component
-import { defineComponent } from 'vue'
-
-const ShortcutItem = defineComponent({
-  name: 'ShortcutItem',
-  props: {
-    shortcut: {
-      type: String,
-      required: true
-    },
-    description: {
-      type: String,
-      required: true
-    }
-  },
-  template: `
-    <div class="flex items-center justify-between py-2">
-      <span class="text-sm text-gray-600">{{ description }}</span>
-      <kbd class="inline-flex items-center rounded bg-gray-100 px-2 py-1 font-mono text-xs font-semibold text-gray-700">
-        {{ shortcut }}
-      </kbd>
-    </div>
-  `
-})
 </script>
