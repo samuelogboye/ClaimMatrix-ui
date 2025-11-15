@@ -340,7 +340,7 @@ const downloadTemplate = () => {
             <BaseButton variant="secondary" @click="resetUpload">
               Upload Another
             </BaseButton>
-            <BaseButton variant="primary" @click="$router.push('/claims')">
+            <BaseButton variant="primary" @click="$router.push('/app/claims')">
               View Claims
             </BaseButton>
           </div>

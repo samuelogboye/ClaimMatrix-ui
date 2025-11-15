@@ -310,7 +310,7 @@ onMounted(() => {
           <BaseButton
             variant="secondary"
             class="w-full"
-            @click="$router.push('/claims')"
+            @click="$router.push('/app/claims')"
           >
             <DocumentTextIcon class="w-4 h-4 mr-2" />
             View All Claims
@@ -326,7 +326,7 @@ onMounted(() => {
           <BaseButton
             variant="secondary"
             class="w-full"
-            @click="$router.push('/claims/upload')"
+            @click="$router.push('/app/claims/upload')"
           >
             <ArrowDownTrayIcon class="w-4 h-4 mr-2" />
             Upload Claims

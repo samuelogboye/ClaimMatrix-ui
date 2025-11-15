@@ -161,7 +161,7 @@ const commands = ref<Command[]>([
     description: 'View analytics and insights',
     icon: HomeIcon,
     shortcut: 'D',
-    action: () => router.push('/dashboard')
+    action: () => router.push('/app/dashboard')
   },
   {
     id: 'claims',
@@ -169,7 +169,7 @@ const commands = ref<Command[]>([
     description: 'Browse all healthcare claims',
     icon: DocumentTextIcon,
     shortcut: 'C',
-    action: () => router.push('/claims')
+    action: () => router.push('/app/claims')
   },
   {
     id: 'flagged',
@@ -177,7 +177,7 @@ const commands = ref<Command[]>([
     description: 'View potentially fraudulent claims',
     icon: FlagIcon,
     shortcut: 'F',
-    action: () => router.push('/audit/flagged')
+    action: () => router.push('/app/audit/flagged')
   },
   {
     id: 'upload',
@@ -185,7 +185,7 @@ const commands = ref<Command[]>([
     description: 'Upload claims via CSV file',
     icon: ArrowUpTrayIcon,
     shortcut: 'U',
-    action: () => router.push('/claims/upload')
+    action: () => router.push('/app/claims/upload')
   },
   {
     id: 'audit',
@@ -193,21 +193,21 @@ const commands = ref<Command[]>([
     description: 'View audit results and statistics',
     icon: ClipboardDocumentCheckIcon,
     shortcut: 'A',
-    action: () => router.push('/audit/results')
+    action: () => router.push('/app/audit/results')
   },
   {
     id: 'audit-dashboard',
     name: 'Audit Dashboard',
     description: 'ML audit controls and monitoring',
     icon: ChartBarIcon,
-    action: () => router.push('/audit/dashboard')
+    action: () => router.push('/app/audit/dashboard')
   },
   {
     id: 'settings',
     name: 'Settings',
     description: 'Manage your account and preferences',
     icon: Cog6ToothIcon,
-    action: () => router.push('/settings')
+    action: () => router.push('/app/settings')
   }
 ])
 

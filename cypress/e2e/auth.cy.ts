@@ -28,7 +28,7 @@ describe('Authentication Flow', () => {
 
       // Note: This will fail without a real backend
       // In a real test, you would mock the API response
-      // cy.url().should('include', '/dashboard')
+      // cy.url().should('include', '/app/dashboard')
     })
 
     it('should navigate to register page', () => {
@@ -57,12 +57,12 @@ describe('Authentication Flow', () => {
 
   describe('Protected Routes', () => {
     it('should redirect to login when not authenticated', () => {
-      cy.visit('/dashboard')
+      cy.visit('/app/dashboard')
       cy.url().should('include', '/login')
     })
 
     it('should redirect to login when accessing claims page', () => {
-      cy.visit('/claims')
+      cy.visit('/app/claims')
       cy.url().should('include', '/login')
     })
 

@@ -38,7 +38,7 @@ export function useAuth() {
 
       // Redirect to intended page or dashboard
       const redirect = router.currentRoute.value.query.redirect as string
-      router.push(redirect || '/dashboard')
+      router.push(redirect || '/app/dashboard')
     } catch (err: any) {
       console.log("err.response:", err.response)
       const errorMessage = err.response?.data?.detail || err.response?.data?.error?.message || err.response?.data?.error ||'Login failed'
@@ -82,7 +82,7 @@ export function useAuth() {
     authStore.clearAuth()
     tokenStorage.clear()
     toast.info('You have been logged out')
-    router.push('/login')
+    router.push('/')
   }
 
   /**

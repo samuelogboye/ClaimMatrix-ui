@@ -163,7 +163,7 @@ onMounted(() => {
               <ArrowDownTrayIcon class="w-4 h-4 mr-2" />
               Export Selected
             </BaseButton>
-            <BaseButton variant="primary" @click="$router.push('/claims/upload')">
+            <BaseButton variant="primary" @click="$router.push('/app/claims/upload')">
               <ArrowUpTrayIcon class="w-4 h-4 mr-2" />
               Upload Claims
             </BaseButton>

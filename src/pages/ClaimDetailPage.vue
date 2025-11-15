@@ -31,7 +31,7 @@ const fetchClaim = async () => {
     claim.value = await claimsService.getById(claimId)
   } catch (error) {
     toast.error('Failed to load claim details')
-    router.push('/claims')
+    router.push('/app/claims')
   } finally {
     loading.value = false
   }
@@ -62,7 +62,7 @@ onMounted(() => {
     <div class="bg-white border-b border-gray-200">
       <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div class="flex items-center gap-4">
-          <BaseButton variant="ghost" @click="$router.push('/claims')">
+          <BaseButton variant="ghost" @click="$router.push('/app/claims')">
             <ChevronLeftIcon class="h-5 w-5" />
           </BaseButton>
           <div>

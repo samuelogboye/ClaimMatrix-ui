@@ -28,27 +28,27 @@ export function useKeyboardShortcuts() {
     'd': {
       key: 'd',
       description: 'Go to Dashboard',
-      action: () => router.push('/dashboard')
+      action: () => router.push('/app/dashboard')
     },
     'c': {
       key: 'c',
       description: 'Go to Claims',
-      action: () => router.push('/claims')
+      action: () => router.push('/app/claims')
     },
     'f': {
       key: 'f',
       description: 'Go to Flagged Claims',
-      action: () => router.push('/audit/flagged')
+      action: () => router.push('/app/audit/flagged')
     },
     'u': {
       key: 'u',
       description: 'Go to Upload Claims',
-      action: () => router.push('/claims/upload')
+      action: () => router.push('/app/claims/upload')
     },
     'a': {
       key: 'a',
       description: 'Go to Audit Results',
-      action: () => router.push('/audit/results')
+      action: () => router.push('/app/audit/dashboard')
     },
     // Help
     '?': {

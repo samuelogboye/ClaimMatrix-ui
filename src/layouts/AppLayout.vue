@@ -23,27 +23,27 @@ const sidebarOpen = ref(false)
 const navigation = [
   {
     name: 'Dashboard',
-    path: '/dashboard',
+    path: '/app/dashboard',
     icon: HomeIcon
   },
   {
     name: 'Claims',
-    path: '/claims',
+    path: '/app/claims',
     icon: DocumentTextIcon
   },
   {
     name: 'Upload Claims',
-    path: '/claims/upload',
+    path: '/app/claims/upload',
     icon: ArrowUpTrayIcon
   },
   {
     name: 'Audit Dashboard',
-    path: '/audit/dashboard',
+    path: '/app/audit/dashboard',
     icon: ChartBarIcon
   },
   {
     name: 'Flagged Claims',
-    path: '/audit/flagged',
+    path: '/app/audit/flagged',
     icon: FlagIcon
   }
 ]

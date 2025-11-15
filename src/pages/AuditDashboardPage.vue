@@ -208,7 +208,7 @@ onMounted(() => {
             v-for="audit in recentAudits"
             :key="audit.id"
             class="px-6 py-4 hover:bg-gray-50 cursor-pointer transition-colors"
-            @click="$router.push(`/claims/${audit.claim_id}`)"
+            @click="$router.push(`/app/claims/${audit.claim_id}`)"
           >
             <div class="flex items-center justify-between">
               <div class="flex-1">
