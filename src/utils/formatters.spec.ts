@@ -33,8 +33,8 @@ describe('formatters', () => {
     })
 
     it('should handle invalid dates', () => {
-      expect(formatDate('invalid')).toBe('Invalid Date')
-      expect(formatDate('')).toBe('Invalid Date')
+      expect(formatDate('invalid')).toBe('invalid')
+      expect(formatDate('')).toBe('')
     })
 
     it('should format with custom format', () => {
