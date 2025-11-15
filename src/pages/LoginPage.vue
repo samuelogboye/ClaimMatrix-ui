@@ -17,7 +17,11 @@ const schema = yup.object({
 
 // Form setup
 const { handleSubmit, errors, isSubmitting } = useForm({
-  validationSchema: schema
+  validationSchema: schema,
+  initialValues: {
+    email: '',
+    password: ''
+  }
 })
 
 const { value: email } = useField<string>('email')
